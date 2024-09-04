@@ -99,10 +99,22 @@ function ExplanationSlide() {
   )
 }
 
-function BentoTypesSlide({ showAll, setShowAll, bentoData, carouselIndex, nextCarouselItem, prevCarouselItem }) {
+function BentoTypesSlide({ showAll, setShowAll, bentoData, carouselIndex, nextCarouselItem, prevCarouselItem }: {
+  showAll: boolean
+  setShowAll: (showAll: boolean) => void
+  bentoData: {
+    id: number
+    name: string
+    price: number
+    link: string
+  }[]
+  carouselIndex: number
+  nextCarouselItem: () => void
+  prevCarouselItem: () => void
+}) {
   const topBentos = bentoData.slice(0, 5)
 
-  const getImageUrl = (index) => {
+  const getImageUrl = (index:number) => {
     const imageUrls = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-VzTpaNCf9qNy3PpCcRjzZ9BtF4jies.jpg",
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-zpRToChHBqbzrnCVQVTYS0bGkY8cnb.jpg",
@@ -125,6 +137,7 @@ function BentoTypesSlide({ showAll, setShowAll, bentoData, carouselIndex, nextCa
                 index === carouselIndex ? 'opacity-100' : 'opacity-0'
               }`}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={getImageUrl(index)} alt={bento.name} className="rounded-lg shadow-lg mb-2 mx-auto h-48 object-cover" />
               <p className="text-lg">{bento.name}</p>
               <p className="text-xl font-bold text-[#D70A30]">￥{bento.price.toLocaleString()}</p>
