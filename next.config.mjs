@@ -1,10 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",
-  images: {
-    unoptimized: true,
-  },
-  basePath: "/bento-lt",
-};
+const nextConfig = {};
 
-module.exports = nextConfig;
+export default nextConfig;
